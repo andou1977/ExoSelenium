@@ -18,7 +18,7 @@ public class InsertionetTestLaunch {
         WebDriverManager.firefoxdriver().setup();
         webDriver=new FirefoxDriver();
         insertionEtTest=new InsertionEtTest(webDriver);
-        webDriver.get("file:///C:/Users/GENIUS/Downloads/download/contact-form-08/index.html");
+        webDriver.get("file:///C:/Users/GENIUS/downloads/download/contact-form-08/index.html");
 
     }
 

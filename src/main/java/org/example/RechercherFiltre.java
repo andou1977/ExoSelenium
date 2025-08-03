@@ -17,11 +17,10 @@ public class RechercherFiltre {
 
     @FindBy(xpath = "//input[@class='search--submit--2VTbd-T search--newSubmit--3BlVRKw']")
     private WebElement clicknow;
-    @FindBy(xpath = "//a[@style='display: block; position: absolute; right: 0px; top: 0px; height: 52px; line-height: 52px; padding: 0px 20px; color: rgb(153, 153, 153);']")
-    private WebElement shitclick;
 
-    @FindBy(xpath = "//h3[@class='kr_j0']")
+    @FindBy(xpath = "//h3[@class='kt_ki ']")
     private List<WebElement> mylist;
+
 
 
     public RechercherFiltre(WebDriver webDriver) {
@@ -29,24 +28,26 @@ public class RechercherFiltre {
         PageFactory.initElements(webDriver,this);
     }
 
-       boolean tcheclist(){
-        for(WebElement thelist:mylist){
-            if(thelist.getText().contains("Essager 240W USB Type C To USB C Cable 100W PD 3.1 ")){
-                return true;
-            }
-
-        }
-        return false;
+      void tcheclist() {
+           for (WebElement thelist : mylist) {
+//              if(thelist.getText().contains("USB Hub 3.0 Hub USB 3 USB 2.0 Multi USB Splitter Power Adapter 4/7 Port Multiple Expander 2.0 with Switch for PC Accessories")){
+//                  return true;
+               System.out.println(thelist.getText());
+//              }
+           }
+//return false;
        }
 
-
-
+//       void testertchelist(){
+//        boolean testchest=tcheclist();
+//        Assertions.assertTrue(testchest);
+//       }
 
     void searchfilter(){
-        filtrevalue.sendKeys("usb");
-        shitclick.click();
-        clicknow.click();
-        tcheclist();
 
+        filtrevalue.sendKeys("usb");
+        clicknow.click();
+  //testertchelist();
+tcheclist();
     }
 }

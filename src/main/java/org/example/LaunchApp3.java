@@ -24,7 +24,7 @@ public class LaunchApp3 {
 
     @Test
     public void launchfilter(){
-        rechercherFiltre.searchfilter();
+       rechercherFiltre.searchfilter();
     }
 
 
