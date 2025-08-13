@@ -21,6 +21,7 @@ public class Tablelaunch {
 
     @Test
     public void launchtable(){
+        // MYF-14 : Vérifier que la connexion fonctionne
         table.launchtable();
     }
 }
