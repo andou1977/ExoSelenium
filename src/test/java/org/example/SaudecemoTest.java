@@ -2,16 +2,19 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Saudecemolaunch {
+import static org.junit.jupiter.api.Assertions.*;
+
+class SaudecemoTest {
 
     WebDriver webDriver;
     Saudecemo saudecemolaunch;
 
-    @Before
+    @BeforeEach
     public void setup(){
         WebDriverManager.firefoxdriver().setup();
         webDriver=new FirefoxDriver();
@@ -24,7 +27,6 @@ public class Saudecemolaunch {
     public void launch(){
         saudecemolaunch.loginnow();
     }
-
 
 
 }

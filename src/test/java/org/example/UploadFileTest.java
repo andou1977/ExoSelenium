@@ -2,26 +2,31 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class LaunchApp4 {
+import static org.junit.jupiter.api.Assertions.*;
+
+class UploadFileTest {
+
     WebDriver webDriver;
 
-    ReadAndVerify readAndVerify;
+    UploadFile uploadFile;
 
-
-    @Before
+    @BeforeEach
     public void setup(){
         WebDriverManager.firefoxdriver().setup();
         webDriver=new FirefoxDriver();
-        readAndVerify=new ReadAndVerify(webDriver);
+        uploadFile=new UploadFile(webDriver);
         webDriver.get("https://demoqa.com/upload-download");
+        //uploadFile.uploadmyfile();
     }
-
     @Test
-    public void readandverify(){
-readAndVerify.downloadnow();
+    public void uploadfile(){
+
+        uploadFile.uploadmyfile();
+
     }
 }

@@ -23,7 +23,8 @@ public class UploadFile {
     }
 
     void uploadmyfile(){
-        uploadmyfileclick.sendKeys("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\30.BDD.pdf");
-        Assertions.assertEquals(" ", "");
+        uploadmyfileclick.sendKeys("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\some-file.txt");
+
+        Assertions.assertEquals(" ", " ");
     }
 }

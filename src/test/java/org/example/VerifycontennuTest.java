@@ -14,8 +14,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.*;
 
-public class verifiercontenutest {
+class VerifycontennuTest {
 
     WebDriver webdriver;
     Verifycontennu verifycontennu;
@@ -39,37 +40,31 @@ public class verifiercontenutest {
     }
 
 
-void verify(){
+    void verify(){
 
-    String downloadPath = "C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\bb.txt";
-    File folder = new File(downloadPath);
+        String downloadPath = "C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\bb.txt";
+        File folder = new File(downloadPath);
 
-    try (BufferedReader lecteur = new BufferedReader(new FileReader(folder))) {
-        String ligne;
-        while ((ligne = lecteur.readLine()) != null) {
-            System.out.println(ligne);
+        try (BufferedReader lecteur = new BufferedReader(new FileReader(folder))) {
+            String ligne;
+            while ((ligne = lecteur.readLine()) != null) {
+                System.out.println(ligne);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-    } catch (IOException e) {
-        e.printStackTrace();
+        Assertions.assertTrue(folder.isFile());
+        Assertions.assertTrue(folder.exists());
     }
 
-    Assertions.assertTrue(folder.isFile());
-    Assertions.assertTrue(folder.exists());
-}
 
-
-
-
-
-
-
-
-
+    
     @Test
     void senddownload(){
         verifycontennu.downloadfile();
-verify();
+        verify();
 
     }
 }

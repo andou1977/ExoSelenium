@@ -1,32 +1,30 @@
 package org.example;
 
-import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Tablelaunch {
-    WebDriver  webDriver;
+import static org.junit.jupiter.api.Assertions.*;
+
+class TableTest {
+    WebDriver webDriver;
     Table table;
 
-    @Before
+    @BeforeEach
     public void setup(){
         WebDriverManager.firefoxdriver().setup();
         webDriver=new FirefoxDriver();
         table=new Table(webDriver);
-        webDriver.get("file:///C:/Users/GENIUS/Downloads/e-commerce-pricing/index.html");
+        webDriver.get("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\htmldocument\\index1.html");
+
     }
-
-    @XrayTest(key = "TEST-123")
-
-
-
     @Test
     public void launchtable(){
 
         table.launchtable();
     }
+
 }

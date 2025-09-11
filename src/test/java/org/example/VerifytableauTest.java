@@ -1,14 +1,14 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class Verifytableautest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class VerifytableauTest {
 
     WebDriver webDriver;
 
