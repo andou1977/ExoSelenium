@@ -40,8 +40,7 @@ class DownloadFile2Test {
     }
 
     //test avec jenkins automatiquement
-    //essayer encore
-
+    
 
     @Test
     public void launchdownload(){
