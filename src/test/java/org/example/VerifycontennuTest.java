@@ -42,8 +42,9 @@ class VerifycontennuTest {
 
     void verify(){
 
-        String downloadPath = "C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\bb.txt";
+        String downloadPath = "C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\tests.txt";
         File folder = new File(downloadPath);
+
 
         try (BufferedReader lecteur = new BufferedReader(new FileReader(folder))) {
             String ligne;

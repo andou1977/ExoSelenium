@@ -39,7 +39,7 @@ class DownloadFile2Test {
 
     }
 
-  
+
 
     @Test
     public void launchdownload(){
