@@ -39,8 +39,7 @@ class DownloadFile2Test {
 
     }
 
-    //test avec jenkins automatiquement
-    // oui c est ca
+  
 
     @Test
     public void launchdownload(){
