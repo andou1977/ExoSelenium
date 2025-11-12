@@ -9,8 +9,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,7 +35,18 @@ class DownloadFile2Test {
         FirefoxOptions options = new FirefoxOptions();
         options.setProfile(profile);
         WebDriverManager.firefoxdriver().setup();
-        webDriver=new FirefoxDriver(options);
+
+
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setBrowserName("firefox");
+
+        try {
+            webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+
+//        webDriver=new FirefoxDriver(options);
         downloadFile2=new DownloadFile2(webDriver);
         downloadFile2=new DownloadFile2(webDriver);
 
