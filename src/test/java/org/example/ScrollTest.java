@@ -10,9 +10,13 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,21 +26,21 @@ class ScrollTest {
     Scroll scroll;
 
     @BeforeEach
-    void setup() throws InterruptedException {
+    void setup()  {
         WebDriverManager.firefoxdriver().setup();
-        webDriver=new FirefoxDriver();
+
         scroll=new Scroll(webDriver);
+       webDriver=new FirefoxDriver();
         webDriver.get("https://unsplash.com/fr");
 
 
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-        Thread.sleep(2000); // juste pour bien voir le scroll
 
 
 
+    }
 
-        // 5. Prendre une capture d’écran complète
+    void screeshot(){
+        scoll();
         File screenshot = ((TakesScreenshot) webDriver).getScreenshotAs(OutputType.FILE);
         try {
             FileHandler.copy(screenshot, new File("screenshot_full.png"));
@@ -44,12 +48,22 @@ class ScrollTest {
             throw new RuntimeException(e);
         }
         System.out.println("Capture enregistrée : screenshot_full.png");
+    }
+
+    void scoll(){
+                JavascriptExecutor js = (JavascriptExecutor) webDriver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
     @Test
     void launch() throws InterruptedException {
- setup();
+screeshot();
     }
 
 }
