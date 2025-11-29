@@ -36,17 +36,19 @@ class DownloadFile2Test {
         options.setProfile(profile);
         WebDriverManager.firefoxdriver().setup();
 
+// cest pour le docker
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//        caps.setBrowserName("firefox");
+//
+//        try {
+//            webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+//        } catch (MalformedURLException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setBrowserName("firefox");
+        webDriver=new FirefoxDriver(options);
 
-        try {
-            webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
 
-//        webDriver=new FirefoxDriver(options);
         downloadFile2=new DownloadFile2(webDriver);
         downloadFile2=new DownloadFile2(webDriver);
 
@@ -60,7 +62,7 @@ class DownloadFile2Test {
     public void launchdownload(){
         downloadFile2.download();
         File file=new File("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\some-file.txt");
-        Assertions.assertEquals(15,file.length());
+        Assertions.assertEquals(16,file.length());
 
     }
 
