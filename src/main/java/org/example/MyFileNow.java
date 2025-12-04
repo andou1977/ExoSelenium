@@ -26,14 +26,14 @@ public class MyFileNow {
 
 
     boolean verify(){
-        if (verifytext.getText().equals("tests.txt")){
+        if (verifytext.getText().equals("blbla.pdf")){
 return true;
         }
         return false;
     }
 
   void sendnow(){
-      choosefile.sendKeys("C:\\Users\\GENIUS\\Downloads\\tests.txt");
+      choosefile.sendKeys("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\blbla.pdf");
       myclick.click();
 
   }

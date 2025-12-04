@@ -22,12 +22,12 @@ class SaudecemoTest {
     @BeforeEach
     public void setup() throws MalformedURLException {
         WebDriverManager.firefoxdriver().setup();
-//        webDriver=new FirefoxDriver();
+        webDriver=new FirefoxDriver();
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setBrowserName("firefox");
-
-        webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+//        DesiredCapabilities caps = new DesiredCapabilities();
+//        caps.setBrowserName("firefox");
+//
+//        webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
 
         saudecemolaunch=new Saudecemo(webDriver);
         webDriver.get("https://www.saucedemo.com/");

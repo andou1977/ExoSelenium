@@ -9,7 +9,7 @@ public class Verifycontennu {
 
     WebDriver webDriver;
 
-    @FindBy(xpath = "//a[@href='download/tests.txt']")
+    @FindBy(xpath = "//a[@href='download/file2.txt']")
     private WebElement  downloadfile;
 
     public Verifycontennu(WebDriver webDriver) {
