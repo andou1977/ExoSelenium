@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -13,6 +15,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,15 +28,22 @@ class VerifycontennuTest {
     @BeforeEach
     void setup() {
         String downloadPath = "C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document";
-        FirefoxProfile profile = new FirefoxProfile();
-        profile.setPreference("browser.download.folderList", 2);
-        profile.setPreference("browser.download.dir", downloadPath);
-        profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/zip,application/octet-stream");
-        profile.setPreference("pdfjs.disabled", true);
-        FirefoxOptions options = new FirefoxOptions();
-        options.setProfile(profile);
-        WebDriverManager.firefoxdriver().setup();
-        webdriver = new FirefoxDriver(options);
+
+
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("download.default_directory", downloadPath);
+        prefs.put("download.prompt_for_download", false);
+        prefs.put("plugins.always_open_pdf_externally", true);
+
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", prefs);
+
+
+        WebDriverManager.chromedriver().setup();
+        WebDriver webdriver = new ChromeDriver(options);
+
+
+
         verifycontennu = new Verifycontennu(webdriver);
         verifycontennu = new Verifycontennu(webdriver);
         webdriver.get("https://the-internet.herokuapp.com/download");

@@ -1,22 +1,19 @@
 package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Before;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class DownloadFile2Test {
     WebDriver webDriver;
@@ -25,16 +22,19 @@ class DownloadFile2Test {
 
 
     @BeforeEach
-    public void setup(){
+    void setup(){
         String downloadPath = "C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document";
-        FirefoxProfile profile = new FirefoxProfile();
-        profile.setPreference("browser.download.folderList", 2); // 2 = chemin personnalisé
-        profile.setPreference("browser.download.dir", downloadPath);
-        profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/zip,application/octet-stream"); // adapte MIME type si besoin
-        profile.setPreference("pdfjs.disabled", true); // désactive le lecteur PDF intégré
-        FirefoxOptions options = new FirefoxOptions();
-        options.setProfile(profile);
-        WebDriverManager.firefoxdriver().setup();
+
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("download.default_directory", downloadPath); // chemin personnalisé
+        prefs.put("download.prompt_for_download", false);      // pas de popup
+        prefs.put("plugins.always_open_pdf_externally", true); // désactive lecteur PDF intégré
+
+
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", prefs);
+
+        WebDriverManager.chromedriver().setup();
 
 // cest pour le docker
 //        DesiredCapabilities caps = new DesiredCapabilities();
@@ -46,7 +46,7 @@ class DownloadFile2Test {
 //            throw new RuntimeException(e);
 //        }
 
-        webDriver=new FirefoxDriver(options);
+        webDriver=new ChromeDriver(options);
 
 
         downloadFile2=new DownloadFile2(webDriver);
@@ -59,7 +59,7 @@ class DownloadFile2Test {
 
 
     @Test
-    public void launchdownload(){
+    void launchdownload(){
         downloadFile2.download();
         File file=new File("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\some-file.txt");
         Assertions.assertEquals(16,file.length());

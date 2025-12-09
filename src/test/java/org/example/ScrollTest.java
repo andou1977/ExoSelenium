@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -27,10 +28,10 @@ class ScrollTest {
 
     @BeforeEach
     void setup()  {
-        WebDriverManager.firefoxdriver().setup();
+        WebDriverManager.chromedriver().setup();
 
         scroll=new Scroll(webDriver);
-       webDriver=new FirefoxDriver();
+       webDriver=new ChromeDriver();
         webDriver.get("https://unsplash.com/fr");
 
 

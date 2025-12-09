@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,8 +22,8 @@ class SaudecemoTest {
 
     @BeforeEach
     public void setup() throws MalformedURLException {
-        WebDriverManager.firefoxdriver().setup();
-        webDriver=new FirefoxDriver();
+        WebDriverManager.chromedriver().setup();
+        webDriver=new ChromeDriver();
 
 //        DesiredCapabilities caps = new DesiredCapabilities();
 //        caps.setBrowserName("firefox");

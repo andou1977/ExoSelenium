@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class DownloadFile2 {
 
 
-    //@FindBy(xpath="//a[contains(@href,'download/network.png')]")
+
     @FindBy(xpath = "//a[@href='download/some-file.txt']")
     private WebElement downloadfile;
     WebDriver webDriver;
