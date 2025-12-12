@@ -122,11 +122,8 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.1.2</version>
                     <configuration>
-                        <!-- Dossier où seront générés les rapports -->
                         <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-                        <!-- Encodage -->
                         <argLine>-Dfile.encoding=UTF-8</argLine>
-                        <!-- Toujours produire les fichiers XML -->
                         <useFile>true</useFile>
                         <printSummary>true</printSummary>
                     </configuration>
