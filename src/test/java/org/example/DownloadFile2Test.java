@@ -60,7 +60,7 @@ class DownloadFile2Test {
 
 
     @Test
-    @XrayTest(key = "FIR-1")
+    @XrayTest(key = "FIR-2")
     void launchdownload(){
         downloadFile2.download();
         File file=new File("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\some-file.txt");
