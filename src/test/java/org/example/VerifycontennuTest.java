@@ -1,5 +1,6 @@
 package org.example;
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -74,6 +75,7 @@ class VerifycontennuTest {
 
     
     @Test
+    @XrayTest(key = "FIR-1")
     void senddownload(){
         verifycontennu.downloadfile();
         verify();

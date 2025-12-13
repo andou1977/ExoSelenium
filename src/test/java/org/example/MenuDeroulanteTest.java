@@ -2,6 +2,7 @@ package org.example;
 
 
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,7 @@ class MenuDeroulanteTest {
     }
 
     @Test
+    @XrayTest(key = "FIR-1")
     void launchmenu(){
         mmenudeMenuDeroulante.menu();
     }

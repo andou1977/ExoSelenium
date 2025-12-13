@@ -1,5 +1,6 @@
 package org.example;
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.junit.jupiter.api.Assertions;
@@ -59,6 +60,7 @@ class DownloadFile2Test {
 
 
     @Test
+    @XrayTest(key = "FIR-1")
     void launchdownload(){
         downloadFile2.download();
         File file=new File("C:\\Users\\GENIUS\\IdeaProjects\\ExoSelenium\\src\\main\\resources\\document\\some-file.txt");

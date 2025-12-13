@@ -1,5 +1,6 @@
 package org.example;
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,6 +38,7 @@ class SaudecemoTest {
 
 
     @Test
+    @XrayTest(key = "FIR-1")
     public void launch(){
         saudecemolaunch.loginnow();
     }

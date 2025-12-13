@@ -1,5 +1,6 @@
 package org.example;
 
+import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -63,6 +64,7 @@ class ScrollTest {
     }
 
     @Test
+    @XrayTest(key = "FIR-1")
     void launch() throws InterruptedException {
 screeshot();
     }
