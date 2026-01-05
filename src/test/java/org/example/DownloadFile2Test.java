@@ -3,6 +3,8 @@ package org.example;
 import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import io.qameta.allure.Story;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -60,6 +62,12 @@ class DownloadFile2Test {
 
 
     @Test
+
+    @Story("Connexion avec identifiants valides")
+    @Description("Vérifie que l'utilisateur peut se connecter avec des identifiants valides")
+
+
+
     @XrayTest(key = "FIR-2")
     void launchdownload(){
         downloadFile2.download();

@@ -40,7 +40,11 @@ class SaudecemoTest {
     @Test
     @XrayTest(key = "FIR-1")
     public void launch(){
+
+
+
         saudecemolaunch.loginnow();
+assertEquals("Swag Labs",saudecemolaunch.testmyvalue());
     }
 
 

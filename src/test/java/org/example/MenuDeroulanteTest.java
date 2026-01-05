@@ -4,6 +4,8 @@ package org.example;
 
 import app.getxray.xray.junit.customjunitxml.annotations.XrayTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Story;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +30,8 @@ class MenuDeroulanteTest {
     }
 
     @Test
+    @Story("Connexion avec identifiants valides")
+    @Description("Vérifie que l'utilisateur peut se connecter avec des identifiants valides")
     @XrayTest(key = "FIR-1")
     void launchmenu(){
         mmenudeMenuDeroulante.menu();

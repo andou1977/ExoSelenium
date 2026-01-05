@@ -33,6 +33,9 @@ public class Saudecemo {
   @FindBy(xpath="//div[@class='inventory_item_name ']")
   private List<WebElement>mylist=new ArrayList<>();
 
+  @FindBy(xpath="//div[@class='app_logo']")
+  private WebElement getmytitle;
+
 
 
 
@@ -45,6 +48,7 @@ public class Saudecemo {
         testverify();
 
     }
+
 
     void verifierusername() {
         String username1 = username.getAttribute("value");
@@ -71,4 +75,9 @@ public class Saudecemo {
         boolean tryit=verifyvaluetable();
         assertEquals(true,tryit);
     }
+    public String testmyvalue(){
+
+        return getmytitle.getText();
+    }
+
 }
